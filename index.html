@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,32 +10,63 @@
       margin: 0;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: white;
       font-family: Arial, sans-serif;
+      gap: 25px;
     }
 
     h1 {
       font-size: clamp(32px, 8vw, 64px);
       text-align: center;
     }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: black;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
+
 <body>
   <h1>MODDA GUDUVU</h1>
 
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="./music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
   </audio>
+
+  <button id="musicButton">▶ Play Music</button>
 
   <script>
     const music = document.getElementById("bgMusic");
+    const button = document.getElementById("musicButton");
 
-    music.play().catch(error => {
-      console.log("Audio playback failed:", error);
+    button.addEventListener("click", async () => {
+      try {
+        if (music.paused) {
+          await music.play();
+          button.textContent = "⏸ Pause Music";
+        } else {
+          music.pause();
+          button.textContent = "▶ Play Music";
+        }
+      } catch (error) {
+        alert("Music could not play. Check that music.mp3 exists in your repository.");
+        console.error(error);
+      }
+    });
+
+    music.addEventListener("ended", () => {
+      button.textContent = "▶ Play Music";
     });
   </script>
 </body>
 </html>
-
