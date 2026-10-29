@@ -1,4 +1,4 @@
-
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +7,7 @@
   <title>MODDA GUDUVU</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -18,40 +16,14 @@
       justify-content: center;
       align-items: center;
       font-family: Arial, sans-serif;
-      color: #eafff0;
-      background:
-        radial-gradient(
-          ellipse at 15% 20%,
-          rgba(0, 255, 100, 0.18),
-          transparent 40%
-        ),
-        radial-gradient(
-          ellipse at 85% 80%,
-          rgba(0, 200, 80, 0.16),
-          transparent 40%
-        ),
-        linear-gradient(135deg, #020b05, #071b0d 55%, #031108);
-      overflow-x: hidden;
-      padding: 20px;
+      background: white;
     }
 
     h1 {
       font-size: clamp(32px, 8vw, 64px);
       text-align: center;
-      overflow-wrap: anywhere;
-      background: linear-gradient(
-        100deg,
-        #ffffff,
-        #86ffad,
-        #00ff66
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 30px rgba(0, 255, 100, 0.2);
     }
 
-    /* Dark overlay blurs the entire page behind the popup */
     #popup {
       position: fixed;
       inset: 0;
@@ -60,145 +32,44 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
-      background: rgba(0, 8, 3, 0.55);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.7);
     }
 
-    /* Popup itself stays sharp and clear */
     .box {
-      position: relative;
-      z-index: 10000;
       width: 100%;
       max-width: 350px;
       padding: 30px 24px;
-      border-radius: 24px;
-      background: rgba(5, 25, 12, 0.96);
-      border: 1px solid rgba(0, 255, 100, 0.55);
+      border-radius: 20px;
+      background: white;
       text-align: center;
-      box-shadow:
-        0 0 25px rgba(0, 255, 80, 0.2),
-        0 0 60px rgba(0, 255, 80, 0.1),
-        inset 0 1px 0 rgba(180, 255, 200, 0.12);
-      transition: border-color 0.25s ease,
-                  box-shadow 0.25s ease;
-    }
-
-    .box:hover {
-      border-color: rgba(0, 255, 100, 0.8);
-      box-shadow:
-        0 0 30px rgba(0, 255, 80, 0.2),
-        0 0 65px rgba(0, 255, 80, 0.12),
-        inset 0 1px 0 rgba(180, 255, 200, 0.15);
-    }
-
-    .box h2 {
-      color: #eafff0;
-      font-size: 28px;
-      margin-top: 0;
-      margin-bottom: 12px;
-      text-shadow: 0 0 14px rgba(0, 255, 100, 0.2);
-    }
-
-    .box p {
-      color: #b9d9c2;
-      line-height: 1.6;
+      box-shadow: 0 10px 40px #0003;
     }
 
     .instagram {
       display: inline-block;
       margin: 12px 0 24px;
-      padding: 12px 15px;
-      max-width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 255, 100, 0.22);
-      background: rgba(0, 255, 100, 0.055);
-      color: #69ff9b;
+      color: #d62976;
       font-size: 18px;
       font-weight: bold;
       text-decoration: none;
       overflow-wrap: anywhere;
-      transition: background 0.2s ease,
-                  border-color 0.2s ease,
-                  box-shadow 0.2s ease,
-                  transform 0.2s ease;
-    }
-
-    .instagram:hover {
-      background: rgba(0, 255, 100, 0.12);
-      border-color: rgba(0, 255, 100, 0.65);
-      box-shadow: 0 0 18px rgba(0, 255, 100, 0.12);
-      transform: translateY(-2px);
     }
 
     #openBtn {
       display: block;
       width: 100%;
       padding: 14px;
-      border: 1px solid rgba(180, 255, 200, 0.5);
-      border-radius: 13px;
-      background: linear-gradient(110deg, #00ff66, #70ff9f);
-      color: #031108;
+      border: 0;
+      border-radius: 12px;
+      background: #111;
+      color: white;
       font-size: 18px;
-      font-weight: bold;
       cursor: pointer;
-      box-shadow:
-        0 0 15px rgba(0, 255, 80, 0.22),
-        0 0 35px rgba(0, 255, 80, 0.1);
-      transition: transform 0.2s ease,
-                  box-shadow 0.2s ease,
-                  filter 0.2s ease;
-    }
-
-    #openBtn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-      box-shadow:
-        0 0 22px rgba(0, 255, 80, 0.4),
-        0 0 45px rgba(0, 255, 80, 0.16);
-    }
-
-    #openBtn:active {
-      transform: translateY(0);
-    }
-
-    #openBtn:disabled {
-      opacity: 0.7;
-      cursor: wait;
-    }
-
-    #openBtn:focus-visible,
-    .instagram:focus-visible {
-      outline: 2px solid #00ff66;
-      outline-offset: 4px;
     }
 
     #message {
-      color: #ff9999;
+      color: #c00;
       font-size: 14px;
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 14px;
-      }
-
-      .box {
-        padding: 27px 20px;
-        border-radius: 21px;
-      }
-
-      .instagram {
-        font-size: 16px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
     }
   </style>
 </head>
@@ -220,7 +91,7 @@
         href="https://www.instagram.com/YOUR_USERNAME/"
         target="_blank"
         rel="noopener noreferrer">
-        📸 Campus_life_gitam_hyd
+        📸 steelandsneakers
       </a>
 
       <button id="openBtn">Open ❤️</button>
